@@ -1,12 +1,11 @@
-import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import Layout from "../Layout/Layout";
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Layout from '../Layout/Layout';
 
 const LoginPage = (props) => {
   const navigate = useNavigate();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
-
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -16,38 +15,35 @@ const LoginPage = (props) => {
 
     const addedUser = {
       email: enteredEmail,
-      password: enteredPassword,
+      password: enteredPassword
     };
 
-    console.log("add user log", addedUser);
+    console.log('add user log', addedUser);
 
     const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(addedUser),
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(addedUser)
     };
-    fetch("https://reqres.in/api/login", requestOptions)
+    fetch('https://reqres.in/api/login', requestOptions)
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem('token', data.token);
-      if(data.token){
-        navigate('/homepage');
-      }
+        if (data.token) {
+          navigate('/homepage');
+        }
       });
-    
-    
-      
   };
 
   return (
     <Layout>
-    <form onSubmit={submitHandler}>
-      <label>Email</label>
-      <input type="email" ref={emailInputRef}></input>
-      <label>Password</label>
-      <input type="password" ref={passwordInputRef}></input>
-      <button type="submit">Sign In</button>
-    </form>
+      <form onSubmit={submitHandler}>
+        <label>Email</label>
+        <input type="email" ref={emailInputRef}></input>
+        <label>Password</label>
+        <input type="password" ref={passwordInputRef}></input>
+        <button type="submit">Sign In</button>
+      </form>
     </Layout>
   );
 };

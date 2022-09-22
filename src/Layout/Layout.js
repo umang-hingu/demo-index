@@ -1,4 +1,5 @@
-import NavigationBar from "./NavigationBar";
+/* eslint-disable react/prop-types */
+import NavigationBar from './NavigationBar';
 
 const Layout = (props) => {
   return (

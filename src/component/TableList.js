@@ -1,14 +1,12 @@
-import TableItem from "./TableItem";
-import { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
-
-
+import TableItem from './TableItem';
+import { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 
 const TableList = () => {
   const [loadedData, setLoadedData] = useState([]);
 
   const fetchdata = () => {
-    fetch("https://reqres.in/api/users?page=2")
+    fetch('https://reqres.in/api/users?page=2')
       .then((response) => {
         return response.json();
       })

@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import TableList from "../component/TableList";
-import Layout from "../Layout/Layout";
+import { Link } from 'react-router-dom';
+import TableList from '../component/TableList';
+import Layout from '../Layout/Layout';
 
 const HomePage = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
 
   return (
     <Layout>
@@ -13,8 +13,10 @@ const HomePage = () => {
           <TableList></TableList>
         </div>
       ) : (
-        <div>you are not logged in.<br></br>
-        <Link to='/'>Please, Log in by tapping here.</Link></div>
+        <div>
+          you are not logged in.<br></br>
+          <Link to="/">Please, Log in by tapping here.</Link>
+        </div>
       )}
     </Layout>
   );
